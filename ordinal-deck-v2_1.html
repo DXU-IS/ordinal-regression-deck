@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="deck-version" content="20261109072203">
+<meta name="deck-version" content="20261109110735">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ordinal Logistic Regression</title>
 <meta name="description" content="Interactive lecture deck on ordinal (proportional-odds) logistic regression: concepts built step by step with one running example.">
@@ -477,6 +477,7 @@ table.cond td{padding:14px 10px!important}
 .mkeys{margin:22px 0 0 0;padding:12px 22px 12px 44px;background:var(--surface);border-left:4px solid var(--beta);border-radius:12px}
 .mkeys li{font-size:22px;line-height:1.5;color:var(--ink2);margin-bottom:4px}.mkeys li b{color:var(--ink)}
 .ans.tk{font-size:24px;padding:20px 22px;margin-bottom:20px;line-height:1.45}
+.evgrid.three{grid-template-columns:repeat(3,1fr);margin-top:70px}.evgrid.three .evb{min-height:300px;padding:30px 26px}.evgrid.three .evh{font-size:27px;margin-bottom:14px}.evgrid.three p{font-size:23px}
 .evgrid.one{grid-template-columns:1fr;max-width:900px}
 .evb.warn{border-top-color:var(--warn)}.evb.warn .evh{color:var(--warn)}
 .evb p b{color:var(--ink)}
@@ -1131,16 +1132,15 @@ If asked: they also treated the three outcomes as independent, though 37 inactiv
 <!-- 30 · implementation and interpretation -->
 <section class="slide" id="p3-impl">
   <h2>Was it implemented and interpreted correctly?</h2>
-  <div class="evgrid">
+  <div class="evgrid three">
     <div class="evb ok frag"><div class="evh">✓ Clear, comparable effects</div><p>Predictors standardised; directions read correctly.</p></div>
-    <div class="evb bad frag"><div class="evh">✗ Pseudo-R² misread</div><p>"Correctly predicts about 33%": pseudo-R² is not % correct.</p></div>
     <div class="evb bad frag"><div class="evh">✗ Only β and p reported</div><p>No odds ratios, confidence intervals or predicted probabilities.</p></div>
     <div class="evb bad frag"><div class="evh">✗ Feelings were measured, not manipulated</div><p>This step is correlational, not experimental.</p></div>
   </div>
   <aside class="notes">Target 1:30. Box 1: credit. They standardised the two feelings, so the effects are comparable, read the signs correctly, and compared each model with a covariates-only model.
-Box 2: the clear mistake. They write "Model A correctly predicts about 33% of inaction" (p. 688), but that number is a Cox–Snell pseudo-R². Pseudo-R² is not the share of cases predicted correctly (we saw this on the Part 2 fit slide), and Cox–Snell cannot even reach 1.
-Box 3: reporting is thin: coefficients and p-values only (full tables only in the online appendix). No thresholds, odds ratios, CIs or predicted probabilities, so readers can't judge how big the effects are.
-Box 4: the experiment manipulated tagging and shared friends, but the ordinal models use the measured feelings as predictors, so this stage shows association, not cause. Mediation was tested with the older Baron and Kenny steps.</aside>
+Box 2: reporting is thin: coefficients and p-values only (full tables only in the online appendix). No thresholds, odds ratios, CIs or predicted probabilities, so readers can't judge how big the effects are.
+Box 3: the experiment manipulated tagging and shared friends, but the ordinal models use the measured feelings as predictors, so this stage shows association, not cause. Mediation was tested with the older Baron and Kenny steps.
+Optional (removed from the slide): they wrote that "Model A correctly predicts about 33% of inaction" (p. 688), but 0.33 is a Cox–Snell pseudo-R², which is not the share of cases predicted correctly.</aside>
 </section>
 
 <!-- 31 · contribution and verdict -->
